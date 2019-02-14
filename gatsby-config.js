@@ -5,6 +5,26 @@ module.exports = {
     author: `@gatsbyjs`,
   },
   plugins: [
+    "gatsby-plugin-sass",
+    {
+        resolve: "gatsby-source-filesystem",
+        options:{
+            name : "src",
+            path: `${__dirname}/src/`,
+        },
+    },
+    {
+        resolve: "gatsby-source-filesystem",
+        options:{
+            name : "pages",
+            path: `${__dirname}/blog_md/`,
+        },
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
