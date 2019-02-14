@@ -1,0 +1,57 @@
+.gatsby-highlight {
+    background-color: #2d2d2d;
+    border-radius: 0.3em;
+    margin: 0.5em 0;
+    padding: 0.5em;
+    overflow: auto;
+}
+
+
+.gatsby-highlight pre[class*="language-"].line-numbers {
+	position: relative;
+	padding-left: 2em;
+	counter-reset: linenumber;
+}
+
+
+.gatsby-highlight pre[class*="language-"] {
+	// color: #ccc;
+	background: none;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+    hyphens: none;
+}
+
+
+.gatsby-highlight pre[class*="language-"] {
+    padding: 0em;
+    margin: .5em 0;
+    overflow: auto;
+}
+
+
+.gatsby-code-title {
+    background: #d4d4d3;
+    color: #0629f3;
+    margin-bottom: -0.65em;
+    padding: 0.7rem 1.05rem;
+    font-size: 0.8em;
+    line-height: 0.2;
+    font-family: SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;
+    font-weight: 600;
+    border-radius: 8px 8px 0 0;
+    display: table;
+  }
