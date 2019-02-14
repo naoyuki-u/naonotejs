@@ -7,22 +7,47 @@ module.exports = {
   plugins: [
     "gatsby-plugin-sass",
     {
-        resolve: "gatsby-source-filesystem",
-        options:{
-            name : "src",
-            path: `${__dirname}/src/`,
-        },
+      resolve: "gatsby-source-filesystem",
+      options:{
+        name : "src",
+        path: `${__dirname}/src/`,
+      },
     },
     {
-        resolve: "gatsby-source-filesystem",
-        options:{
-            name : "pages",
-            path: `${__dirname}/blog_md/`,
-        },
+      resolve: "gatsby-source-filesystem",
+      options:{
+        name : "pages",
+        path: `${__dirname}/blog_md/`,
+      },
     },
     {
       resolve: `gatsby-transformer-remark`,
       options: {
+        plugins: [
+          `gatsby-remark-code-titles`,
+          `gatsby-remark-katex`,
+          "gatsby-remark-copy-linked-files",
+          `gatsby-remark-responsive-iframe`,
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              classPrefix: "language-",
+              inlineCodeMarker: null,
+              aliases: {},
+              showLineNumbers: true,
+              noInlineHighlight: false,
+            }
+          },
+          {
+              resolve: `gatsby-remark-images`,
+              options: {
+              // It's important to specify the maxWidth (in pixels) of
+              // the content container as this plugin uses this as the
+              // base for generating different widths of each image.
+              maxWidth: 590,
+              },
+          },
+        ],
       },
     },
     `gatsby-plugin-react-helmet`,
