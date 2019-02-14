@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 
 import { rhythm } from "../../utils/typography"
 
-import "./codeblock.scss"
+import "../../styles/codeblock.scss"
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 import 'katex/dist/katex.min.css'
 class Layout extends Component {
