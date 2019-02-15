@@ -1,0 +1,23 @@
+.head_bar{
+    height: 64px;
+    max-width: auto;
+}
+
+.title{
+    color: whitesmoke;
+}
+
+.menu_button{
+    margin-left: 10px;
+}
+
+.site_title{
+    display: 'none';
+}
+
+.test_button{
+}
+
+.home_button{
+    height: 500px;
+}

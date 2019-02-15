@@ -50,6 +50,18 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+      },
+    },
+    {
+      resolve: `gatsby-plugin-less`,
+      options: {
+        javascriptEnabled: true,
+        modifyVars: require(`./src/styles/theme.js`),
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
