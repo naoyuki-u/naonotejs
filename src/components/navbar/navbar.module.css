@@ -1,5 +1,5 @@
 .head_bar{
-    height: 64px;
+    height: 128px;
     max-width: auto;
 }
 
@@ -7,8 +7,9 @@
     color: whitesmoke;
 }
 
-.menu_button{
-    margin-left: 10px;
+.menuStyle{
+    height: 64px;
+    max-width: auto;
 }
 
 .site_title{

@@ -27,7 +27,7 @@ class NavBar extends Component {
           <h2 className={styled.title}>{config.siteTitle}</h2>
         </Col>
         <Col span={8} offset={8}>
-          <Menu className={styled.head_bar} mode="horizontal" theme="dark" style={{ lineHeight: '64px' }}>
+          <Menu className={styled.menuStyle} mode="horizontal" theme="dark" style={{ lineHeight: '64px' }}>
             <Menu.Item key="1">
               BLOG
             </Menu.Item>
