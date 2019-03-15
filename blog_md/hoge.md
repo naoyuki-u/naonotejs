@@ -1,7 +1,7 @@
 ---
 title: "hogehogehogege"
 date: "2019-02-28"
-satoshi: "satoshi"
+category: "hiroshi"
 tags:
     - programming
     - stuff
