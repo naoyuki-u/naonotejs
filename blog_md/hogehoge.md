@@ -7,6 +7,8 @@ tags:
     - stuff
     - other
     - demo
+    - satoshi
+    - hhure
 ---
 
 

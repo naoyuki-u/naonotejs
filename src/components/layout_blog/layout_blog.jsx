@@ -41,7 +41,7 @@ class LayoutBlog extends Component {
           {children}
           {/* <Content className={styled.post_body}>{children}</Content> */}
         </div>
-        <Sidebar>child</Sidebar>
+        <Sidebar>chxild</Sidebar>
       </Layout>
       <Footer>Footer</Footer>
     </Layout>
