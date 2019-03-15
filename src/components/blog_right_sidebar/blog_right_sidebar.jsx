@@ -5,6 +5,7 @@ import {Layout} from "antd"
 
 import styled from "./blog_right_sidebar.modules.css";
 import TagList from "../taglist"
+import CateList from "../catelist"
 
 const {Sider} = Layout
 
@@ -20,6 +21,7 @@ class BlogRightSidebar extends Component {
             node{
               frontmatter{
                 tags
+                category
               }
             }
           }
@@ -36,9 +38,7 @@ class BlogRightSidebar extends Component {
       return(
         <div>
           <Sider className={styled.sidebar} width={250}>
-            <p>test</p>
-            <p>test</p>
-            <p>test</p>
+            <CateList edges={data.allMarkdownRemark.edges}/>
             <TagList edges={data.allMarkdownRemark.edges}/>
           </Sider>
         </div>
