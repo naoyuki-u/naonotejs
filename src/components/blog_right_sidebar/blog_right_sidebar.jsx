@@ -3,7 +3,7 @@ import { StaticQuery, graphql } from "gatsby"
 
 import {Layout} from "antd"
 
-import styled from "./blog_right_sidebar.modules.css";
+import styled from "./blog_right_sidebar.module.css";
 import TagList from "../taglist"
 import CateList from "../catelist"
 

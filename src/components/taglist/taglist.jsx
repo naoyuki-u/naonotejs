@@ -1,7 +1,7 @@
 import React, {Component} from "react"
 
 import {Tag} from "antd"
-import styled from "./taglist.modules.css"
+import styled from "./taglist.module.css"
 
 class TagList extends Component {
   render() {

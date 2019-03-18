@@ -8,7 +8,7 @@ import { Layout } from 'antd';
 import NavBar from "../navbar"
 import Sidebar from "../blog_right_sidebar"
 
-import styled from "./main_layout.modules.css";
+import styled from "./main_layout.module.css";
 
 const {
   Footer, Content,

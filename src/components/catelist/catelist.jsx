@@ -1,6 +1,6 @@
 import React, {Component} from "react"
 import {Menu} from "antd"
-import styled from "./catelist.modules.css"
+import styled from "./catelist.module.css"
 
 class CateList extends Component {
   render() {
