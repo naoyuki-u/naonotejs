@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { graphql, Link } from "gatsby"
 import { Card, Icon, Tag } from "antd"
 
-import styled from "./postcard.modules.css"
+import styled from "./postcard.module.css"
 
 const { Meta } = Card
 
