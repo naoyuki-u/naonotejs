@@ -1,4 +1,15 @@
 .calendar {
-    margin-right:1em;
-    font-size: 1.1em;
+  margin-right:1em;
+  font-size: 1.1em;
+}
+
+.taglist {
+  margin-right:1em;
+  margin-top:0.5em;
+  font-size: 1.1em;
+}
+
+.tag {
+  margin-right:0.5em;
+  font-size: 1.1em;
 }
