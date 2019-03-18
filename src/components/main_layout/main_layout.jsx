@@ -8,10 +8,6 @@ import { Layout } from 'antd';
 import NavBar from "../navbar"
 import Sidebar from "../blog_right_sidebar"
 
-import "../../styles/codeblock.scss"
-import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
-import 'katex/dist/katex.min.css'
-
 import styled from "./main_layout.modules.css";
 
 const {
