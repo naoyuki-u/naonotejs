@@ -35,7 +35,7 @@ class PostCard extends Component {
             <Icon type="tags" className={styled.taglist} />
             {tags.map((tag) => {
               return(
-                <Link to={`/tags/${(tag)}`}>
+                <Link to={`/tags/${(tag)}/1`}>
                   <Tag className={styled.tag}>{tag}</Tag>
                 </Link>
               )

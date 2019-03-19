@@ -7,7 +7,7 @@ const config = require('../../utils/site_config')
 
 class PostList extends Component {
   render() {
-    const { edges, index } = this.props;
+    const { edges, index, rootUrl } = this.props;
     const total_post = edges.length;
     const page_index = Number(index);
 
@@ -20,10 +20,10 @@ class PostList extends Component {
     }
 
     const onChange = (page) => {
-      if (page == "1"){
+      if (false){
         navigate("/");
       } else{
-        navigate(config.pagesRoot + page)
+        navigate(rootUrl + "/" + page)
       }
     }
 
