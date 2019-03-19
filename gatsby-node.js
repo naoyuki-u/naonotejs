@@ -1,6 +1,7 @@
 
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
+const config = require('./src/utils/site_config')
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
     const { createNodeField } = actions
@@ -21,11 +22,17 @@ exports.createPages = ({ graphql, actions }) => {
     const {createPage} = actions
     return graphql(`
       {
-        allMarkdownRemark {
-          edges {
-            node {
-              fields {
-                slug
+        allMarkdownRemark{
+          edges{
+            node{
+              frontmatter{
+                title,
+                date,
+                tags,
+                category
+              }
+              fields{
+                  slug
               }
             }
           }
@@ -33,16 +40,31 @@ exports.createPages = ({ graphql, actions }) => {
       }
     `
   ).then(result => {
-      result.data.allMarkdownRemark.edges.forEach(({node}) => {
-        createPage({
-              path: node.fields.slug,
-              component: path.resolve(`./src/templates/blog-post.js`),
-              context:{
-                  // Data passed to context is available
-                  // in page queries as GraphQL variables
-                  slug: node.fields.slug
-              }
-          })
+    // 個別の記事ページを作成
+    const edges = result.data.allMarkdownRemark.edges;
+    edges.forEach(({node}) => {
+      createPage({
+        path: node.fields.slug,
+        component: path.resolve(`./src/templates/blog-post.js`),
+        context:{
+            slug: node.fields.slug
+        }
       })
     })
-  }
+
+    // 記事リストページの作成
+    const total_pages = Math.ceil(edges.length / config.postNumberPerPage);
+    console.log("total pages = ");
+    console.log(total_pages);
+    for (index = 1; index <= total_pages; index++){
+    createPage({
+        path: config.pagesRoot + index,
+        component: path.resolve(`./src/templates/blog-pages.jsx`),
+        context:{
+          index,
+          edges
+        }
+      })
+    }
+  })
+}
