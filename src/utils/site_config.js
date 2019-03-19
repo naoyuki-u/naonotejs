@@ -4,9 +4,10 @@ const config = {
     dateFormat: "YY/MM/DD", // Date format for display.
     userName: "aka", // Username to display in the author segment.
     userEmail: "aka.yuki2924@gmail.com", // Email used for RSS feed's author segment
-    copyright: "Copyright Â© 2019. N.Uesugi", // Copyright string for the footer of the website and RSS feed.
+    copyright: "Copyright Ã‚Â© 2019. N.Uesugi", // Copyright string for the footer of the website and RSS feed.
 
     postNumberPerPage: "5",
+    pagesRoot: "pages-",
 };
 
 module.exports = config;
