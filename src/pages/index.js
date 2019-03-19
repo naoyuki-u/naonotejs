@@ -20,7 +20,7 @@ export default ({data}) => {
         Amazing Pandas Eating Things
       </h1>
       <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
-      <PostList edges={data.allMarkdownRemark.edges}></PostList>
+      <PostList edges={data.allMarkdownRemark.edges} index="1"></PostList>
     </div>
   </Layout>
   )
