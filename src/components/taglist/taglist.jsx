@@ -1,5 +1,5 @@
 import React, {Component} from "react"
-
+import { Link } from "gatsby"
 import {Tag} from "antd"
 import styled from "./taglist.module.css"
 
@@ -23,13 +23,15 @@ class TagList extends Component {
     return(
       <div>
         <br/>
-        <h3>タグ</h3>
+        <h3>ã‚¿ã‚°</h3>
         <p></p>
         <div>
           {tagArray.map((tag) => (
-            <Tag className={styled.ant-tag} size="large">
-              <a href={`/tags/${(tag)}`}>{tag}</a>
-            </Tag>
+            <Link to={`/tags/${(tag)}/1`}>
+              <Tag className={styled.ant-tag} size="large">
+                {tag}
+              </Tag>
+            </Link>
           ))}
           <p></p>
         </div>
