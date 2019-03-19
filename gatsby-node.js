@@ -41,6 +41,7 @@ exports.createPages = ({ graphql, actions }) => {
     `
   ).then(result => {
     // 個別の記事ページを作成
+    // edgesはすべてのmarkdown記事を持っている(フィルタリングしていない)
     const edges = result.data.allMarkdownRemark.edges;
     edges.forEach(({node}) => {
       createPage({
@@ -53,18 +54,98 @@ exports.createPages = ({ graphql, actions }) => {
     })
 
     // 記事リストページの作成
-    const total_pages = Math.ceil(edges.length / config.postNumberPerPage);
-    console.log("total pages = ");
-    console.log(total_pages);
-    for (index = 1; index <= total_pages; index++){
-    createPage({
-        path: config.pagesRoot + index,
-        component: path.resolve(`./src/templates/blog-pages.jsx`),
-        context:{
-          index,
-          edges
-        }
-      })
+    createMultiListPages(edges, config.pagesRoot, createPage);
+    // const total_pages = Math.ceil(edges.length / config.postNumberPerPage);
+    // console.log("total pages = ");
+    // console.log(total_pages);
+    // for (index = 1; index <= total_pages; index++){
+    //   createPage({
+    //     path: config.pagesRoot + index,
+    //     component: path.resolve(`./src/templates/blog-pages.jsx`),
+    //     context:{
+    //       index,
+    //       edges
+    //     }
+    //   })
+    // }
+
+    // tagリストページの追加
+    const tagSet = new Set();
+    edges.forEach(edge => {
+      if (edge.node.frontmatter.tags){
+        edge.node.frontmatter.tags.map((tag) => tagSet.add(tag));
+      }
+    })
+    const tagArray = Array.from(tagSet);
+    tagArray.map((tag) =>{
+      createTagPages(tag, graphql, createPage);
+      // createPage({
+      //   path: config.tagPagesRoot + tag,
+      //   component: path.resolve(`./src/templates/blog-pages.jsx`),
+      //   context:{
+      //     tag,
+      //     edges
+      //   }
+      // })
+    });
+  })
+}
+
+
+const createMultiListPages = (edges, rootUrl, createPage) => {
+const total_pages = Math.ceil(edges.length / config.postNumberPerPage);
+console.log("total pages = " + total_pages);
+for (i = 1; i <= total_pages; i++){
+  var urlIndex = i;
+  if (i == 1){
+    urlIndex = "";
+  }
+  console.log(rootUrl + urlIndex);
+  createPage({
+    path: rootUrl + urlIndex,
+    component: path.resolve(`./src/templates/blog-pages.jsx`),
+    context:{
+      index: i,
+      edges
     }
+  })
+}
+}
+
+const createTagPages = (tag, graphql, createPage) => {
+  graphql(`
+  {
+    allMarkdownRemark(
+      limit: 1000
+      sort: { fields:frontmatter___date, order:DESC }
+      filter: { frontmatter: { tags: { in: ["${tag}"] } } }
+    ) {
+      totalCount
+      edges {
+        node {
+          fields {
+            slug
+          }
+          excerpt
+          frontmatter {
+            title
+            tags
+            date
+          }
+        }
+      }
+    }
+  }`
+  ).then(result => {
+    if (result.data.allMarkdownRemark == null){
+      console.log(tag + " is not found.");
+      return;
+    }
+
+    const edges = result.data.allMarkdownRemark.edges;
+    console.log(edges.length + " posts is tagged as " + tag);
+
+    createMultiListPages(edges, config.tagPagesRoot + tag + "/", createPage);
+    // result.data.allMarkdownRemark.edges.map((edge) => console.log(edge.node.frontmatter));
   })
 }
