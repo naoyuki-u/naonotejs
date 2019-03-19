@@ -23,7 +23,7 @@ class TagList extends Component {
     return(
       <div>
         <br/>
-        <h3>ã‚¿ã‚°</h3>
+        <h3>タグ</h3>
         <p></p>
         <div>
           {tagArray.map((tag) => (
