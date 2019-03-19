@@ -3,7 +3,6 @@ module.exports = {
     title: `Gatsby Default Starter`,
     description: ``,
     author: `@naoyuki-u`,
-    postNumberPerPage: `5`
   },
   plugins: [
     "gatsby-plugin-sass",
