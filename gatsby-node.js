@@ -58,7 +58,7 @@ exports.createPages = ({ graphql, actions }) => {
     console.log(total_pages);
     for (index = 1; index <= total_pages; index++){
     createPage({
-        path: "pages/" + index,
+        path: config.pagesRoot + index,
         component: path.resolve(`./src/templates/blog-pages.jsx`),
         context:{
           index,

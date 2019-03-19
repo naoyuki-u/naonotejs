@@ -5,8 +5,6 @@ import PostCard from "../postcard"
 
 const config = require('../../utils/site_config')
 
-
-
 class PostList extends Component {
   render() {
     const { edges, index } = this.props;
@@ -25,7 +23,7 @@ class PostList extends Component {
       if (page == "1"){
         navigate("/");
       } else{
-        navigate("pages/" + page)
+        navigate(config.pagesRoot + page)
       }
     }
 
