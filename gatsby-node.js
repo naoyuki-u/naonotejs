@@ -55,19 +55,6 @@ exports.createPages = ({ graphql, actions }) => {
 
     // 記事リストページの作成
     createMultiListPages(edges, "/", createPage);
-    // const total_pages = Math.ceil(edges.length / config.postNumberPerPage);
-    // console.log("total pages = ");
-    // console.log(total_pages);
-    // for (index = 1; index <= total_pages; index++){
-    //   createPage({
-    //     path: config.pagesRoot + index,
-    //     component: path.resolve(`./src/templates/blog-pages.jsx`),
-    //     context:{
-    //       index,
-    //       edges
-    //     }
-    //   })
-    // }
 
     // tagリストページの追加
     const tagSet = new Set();
@@ -79,14 +66,6 @@ exports.createPages = ({ graphql, actions }) => {
     const tagArray = Array.from(tagSet);
     tagArray.map((tag) =>{
       createTagPages(tag, graphql, createPage);
-      // createPage({
-      //   path: config.tagPagesRoot + tag,
-      //   component: path.resolve(`./src/templates/blog-pages.jsx`),
-      //   context:{
-      //     tag,
-      //     edges
-      //   }
-      // })
     });
   })
 }
@@ -97,9 +76,6 @@ const total_pages = Math.ceil(edges.length / config.postNumberPerPage);
 console.log("total pages = " + total_pages);
 for (i = 1; i <= total_pages; i++){
   var urlIndex = i;
-  // if (i == 1){
-  //   urlIndex = "";
-  // }
   console.log(rootUrl + urlIndex);
   createPage({
     path: rootUrl + urlIndex,
@@ -147,6 +123,5 @@ const createTagPages = (tag, graphql, createPage) => {
     console.log(edges.length + " posts is tagged as " + tag);
 
     createMultiListPages(edges, config.tagPagesRoot + tag + "/", createPage);
-    // result.data.allMarkdownRemark.edges.map((edge) => console.log(edge.node.frontmatter));
   })
 }
