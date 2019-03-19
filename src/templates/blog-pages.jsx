@@ -5,12 +5,12 @@ import PostList from "../components/postlist"
 
 export default class BlogPagesTemplate extends React.Component {
   render() {
-    const { index, edges } = this.props.pageContext;
+    const { index, edges, rootUrl } = this.props.pageContext;
 
     return (
       <MainLayout>
         <div>
-          <PostList edges={edges} index={index}></PostList>
+          <PostList edges={edges} index={index} rootUrl={rootUrl} />
         </div>
       </MainLayout>
     );

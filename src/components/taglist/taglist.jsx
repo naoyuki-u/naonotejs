@@ -27,7 +27,7 @@ class TagList extends Component {
         <p></p>
         <div>
           {tagArray.map((tag) => (
-            <Link to={`/tags/${(tag)}`}>
+            <Link to={`/tags/${(tag)}/1`}>
               <Tag className={styled.ant-tag} size="large">
                 {tag}
               </Tag>

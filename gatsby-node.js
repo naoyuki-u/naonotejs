@@ -54,7 +54,7 @@ exports.createPages = ({ graphql, actions }) => {
     })
 
     // 記事リストページの作成
-    createMultiListPages(edges, config.pagesRoot, createPage);
+    createMultiListPages(edges, "/", createPage);
     // const total_pages = Math.ceil(edges.length / config.postNumberPerPage);
     // console.log("total pages = ");
     // console.log(total_pages);
@@ -97,16 +97,17 @@ const total_pages = Math.ceil(edges.length / config.postNumberPerPage);
 console.log("total pages = " + total_pages);
 for (i = 1; i <= total_pages; i++){
   var urlIndex = i;
-  if (i == 1){
-    urlIndex = "";
-  }
+  // if (i == 1){
+  //   urlIndex = "";
+  // }
   console.log(rootUrl + urlIndex);
   createPage({
     path: rootUrl + urlIndex,
     component: path.resolve(`./src/templates/blog-pages.jsx`),
     context:{
       index: i,
-      edges
+      edges,
+      rootUrl: rootUrl
     }
   })
 }
