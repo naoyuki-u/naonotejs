@@ -34,6 +34,9 @@ class NavBar extends Component {
             <Menu.Item key="2">
               CATEGORY
             </Menu.Item>
+            <Menu.Item key="3">
+              <a href={"mailto:" + config.userEmail}>E-MAIL</a>
+            </Menu.Item>
           </Menu>
         </Col>
       </Row>
