@@ -1,4 +1,4 @@
-import React, {Component, Children} from "react"
+import React, {Component, /*Children*/} from "react"
 import { css } from "@emotion/core"
 
 import MainLayout from "../main_layout"

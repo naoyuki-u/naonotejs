@@ -1,8 +1,8 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql, /*Link*/ } from "gatsby"
 import { css } from "@emotion/core"
-import { rhythm } from "../utils/typography"
-import { Card, Icon, Tag } from "antd"
+// import { rhythm } from "../utils/typography"
+// import { Card, Icon, Tag } from "antd"
 import Layout from "../components/main_layout"
 import PostList from "../components/postlist"
 

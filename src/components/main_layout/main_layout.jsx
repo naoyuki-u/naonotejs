@@ -1,4 +1,4 @@
-import React, {Component, Children} from "react"
+import React, {Component, /*Children*/} from "react"
 import { css } from "@emotion/core"
 
 import { rhythm } from "../../utils/typography"
@@ -11,7 +11,7 @@ import Sidebar from "../blog_right_sidebar"
 import styled from "./main_layout.module.css";
 
 const {
-  Footer, Content,
+  Footer, /*Content,*/
 } = Layout;
 
 class MainLayout extends Component {

@@ -1,5 +1,5 @@
 import React, {Component} from "react"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
 // import styled from "styled-components"
 
 // import AppBar from '@material-ui/core/AppBar'
@@ -7,7 +7,7 @@ import { Link } from "gatsby"
 // import IconButton from '@material-ui/core/IconButton';
 // import MenuIcon from '@material-ui/icons/Menu';
 // import Typography from '@material-ui/core/Typography';
-import {Layout, Button, Menu} from 'antd';
+import {Layout, /*Button,*/ Menu} from 'antd';
 import { Row, Col } from 'antd';
 
 
