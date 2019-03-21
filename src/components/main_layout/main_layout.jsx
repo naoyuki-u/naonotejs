@@ -19,7 +19,7 @@ const {
 class MainLayout extends Component {
 
   state = {
-    isShowSideButton : true
+    isShowSideButton : false
   }
 
   onCollapseSidebar = (collapsed) =>{
