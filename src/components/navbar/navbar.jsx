@@ -1,5 +1,5 @@
 import React, {Component} from "react"
-// import { Link } from "gatsby"
+import { Link } from "gatsby"
 // import styled from "styled-components"
 
 // import AppBar from '@material-ui/core/AppBar'
@@ -23,13 +23,15 @@ class NavBar extends Component {
     <div>
       <Header className={styled.head_bar}>
       <Row>
-        <Col span={8}>
-          <h2 className={styled.title}>{config.siteTitle}</h2>
+        <Col span={2}>
+          <Link to="/">
+            <h2 className={styled.title}>{config.siteTitle}</h2>
+          </Link>
         </Col>
-        <Col span={8} offset={8}>
+        <Col span={8} offset={14}>
           <Menu className={styled.menuStyle} mode="horizontal" theme="dark" style={{ lineHeight: '64px' }}>
             <Menu.Item key="1">
-              BLOG
+              <Link to="/">BLOG</Link>
             </Menu.Item>
             <Menu.Item key="2">
               CATEGORY
