@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { graphql, Link } from "gatsby"
+import { /*graphql,*/ Link } from "gatsby"
 import { Card, Icon, Tag } from "antd"
 
 import styled from "./postcard.module.css"
@@ -14,7 +14,7 @@ class PostCard extends Component {
     return (
       <div key={node.id}>
         <Card
-          style={{width: 650}}
+          style={{width: 600}}
           cover={<img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />}
           title={node.frontmatter.title}
         >
