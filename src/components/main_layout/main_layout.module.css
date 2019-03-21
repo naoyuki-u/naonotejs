@@ -1,5 +1,13 @@
 .post_body{
     margin: 0 auto;
     max-width: 1200px;
-    padding-left: 64px;
+    padding-left: 32px;
+}
+
+.main_content{
+    padding-left: 32px;
+    margin: 0 auto;
+    max-width: 5000px;
+    width: 650px;
+    padding-left: 32px;
 }
