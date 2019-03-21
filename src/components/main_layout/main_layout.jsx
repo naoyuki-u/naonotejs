@@ -30,6 +30,7 @@ class MainLayout extends Component {
           css={css`
             margin: 0 auto;
             max-width: 5000px;
+            width: 650px;
             padding-left: ${rhythm(0.5)};
           `}
         >
