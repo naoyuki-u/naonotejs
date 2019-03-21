@@ -1,10 +1,17 @@
 import React from "react"
 import { css } from "@emotion/core"
-import { Card, Avatar, Icon, Tag } from "antd"
+import { Card, Avatar, List, Icon } from "antd"
 import Layout from "../components/main_layout"
 
 import avatar from "../images/avatar.png"
 const { Meta } = Card;
+
+const contrib_list =[
+  { title: "gatsbyjs",
+    url: "https://www.gatsbyjs.org/"},
+  { title: "Ant Design",
+    url: "https://ant.design/"},
+]
 
 export default ({data}) => {
   console.log(data)
@@ -29,10 +36,33 @@ export default ({data}) => {
             description="ほっげええええええええ"
           />
         </Card>
-        <h3>
-          hogehogehogehoge
-        </h3>
       </div>
+      <br/>
+      <br/>
+      <h3>
+        Powered by
+      </h3>
+      <List
+        itemLayout="horizontal"
+        dataSource={contrib_list}
+        renderItem={item => (
+          <List.Item>
+            <List.Item.Meta
+              title={item.title}
+              description={<a href={item.url}>{item.url}</a>}
+            />
+          </List.Item>
+        )}
+      />
+      <br/>
+      <br/>
+      <h3>
+        Source code
+      </h3>
+      <a href="https://github.com/naoyuki-u/naonotejs/">
+        <Icon type="github" />
+        github
+      </a>
     </div>
   </Layout>
   )
