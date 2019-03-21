@@ -41,3 +41,29 @@ import { navigation } from "gatsby"
 navigation({URL});
 ```
 
+## 画像の埋め込み方法
+
+Aboutページでアイコンを埋め込もうとしていた時、
+単純に下記でOKかと思ったが、画像が埋め込まれなかった。
+(imgタグでもやってみたが、画像が見つからないときのアレが表示されていたので、
+そもそも方法が間違っているみたい。)
+
+```jsx
+<Avatar src="../images/avatar.png" />
+```
+
+公式に説明があったので、適当に内容をメモしておく。
+[ここ](https://www.gatsbyjs.org/docs/images-and-files/)
+
+### Webパックを使用する方法
+
+```jsx
+import avatar from "../images/avatar.png"
+
+<Avatar src={avatar} />
+```
+
+### GraphQLでファイルをクエリする方法
+
+### `static`フォルダを使用する方法
+

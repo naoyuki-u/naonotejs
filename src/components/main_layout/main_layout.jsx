@@ -3,7 +3,7 @@ import { css } from "@emotion/core"
 
 import { rhythm } from "../../utils/typography"
 
-import { Layout } from 'antd';
+import { Layout, Row } from 'antd';
 import {Button} from "antd"
 
 import NavBar from "../navbar"
@@ -38,15 +38,17 @@ class MainLayout extends Component {
     >
       <Layout>
         <NavBar></NavBar>
-        <Content>
-          {this.state.isShowSideButton && <SidebarButton/>}
-          <Layout className={styled.post_body}>
-            <Sidebar onCollapse={this.onCollapseSidebar}></Sidebar>
-            <Content className={styled.main_content}>
-              {children}
-            </Content>
-          </Layout>
-        </Content>
+        {/* <Row> */}
+          <Content>
+            {this.state.isShowSideButton && <SidebarButton/>}
+            <Layout className={styled.post_body}>
+              <Sidebar onCollapse={this.onCollapseSidebar}></Sidebar>
+              <Content className={styled.main_content}>
+                {children}
+              </Content>
+            </Layout>
+          </Content>
+        {/* </Row> */}
         <Footer>Footer</Footer>
       </Layout>
     </div>
