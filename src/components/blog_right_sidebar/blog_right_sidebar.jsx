@@ -30,7 +30,13 @@ class BlogRightSidebar extends Component {
       render={data => {
         return(
           <div>
-            <Sider className={styled.sidebar} width={250}>
+            <Sider className={styled.sidebar} theme="light"
+              breakpoint="lg"
+              collapsedWidth="0"
+              style={{
+                overflow: 'auto', height: '100vh'}}
+              // onBreakpoint={() => alert("hoge")}
+            >
               <CateList edges={data.allMarkdownRemark.edges}/>
               <TagList edges={data.allMarkdownRemark.edges}/>
             </Sider>

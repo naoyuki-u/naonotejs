@@ -11,7 +11,7 @@ import Sidebar from "../blog_right_sidebar"
 import styled from "./main_layout.module.css";
 
 const {
-  Footer, /*Content,*/
+  Footer, Content,
 } = Layout;
 
 class MainLayout extends Component {
@@ -23,24 +23,18 @@ class MainLayout extends Component {
         margin: 0 auto;
       `}
     >
-    <Layout>
-      <NavBar></NavBar>
-      <Layout className={styled.post_body}>
-        <div
-          css={css`
-            margin: 0 auto;
-            max-width: 5000px;
-            width: 650px;
-            padding-left: ${rhythm(0.5)};
-          `}
-        >
-          {children}
-        </div>
-        <Sidebar></Sidebar>
+      <Layout>
+        <NavBar></NavBar>
+        <Content>
+          <Layout className={styled.post_body}>
+            <Sidebar></Sidebar>
+            <Content className={styled.main_content}>
+              {children}
+            </Content>
+          </Layout>
+        </Content>
+        <Footer>Footer</Footer>
       </Layout>
-      <Footer>Footer</Footer>
-    </Layout>
-
     </div>
     )
   }
