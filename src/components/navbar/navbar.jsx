@@ -34,7 +34,7 @@ class NavBar extends Component {
               <Link to="/">BLOG</Link>
             </Menu.Item>
             <Menu.Item key="2">
-              CATEGORY
+              <Link to="/about">ABOUT</Link>
             </Menu.Item>
             <Menu.Item key="3">
               <a href={"mailto:" + config.userEmail}>E-MAIL</a>
