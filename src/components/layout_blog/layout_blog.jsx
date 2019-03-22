@@ -1,5 +1,5 @@
 import React, {Component, /*Children*/} from "react"
-import { css } from "@emotion/core"
+import { Card } from "antd";
 
 import MainLayout from "../main_layout"
 
@@ -11,15 +11,14 @@ import 'katex/dist/katex.min.css'
 
 class LayoutBlog extends Component {
   render() {
-    const {children} = this.props
+    const {title, body} = this.props
     return(
-    <div
-      css={css`
-        margin: 0 auto;
-      `}
-    >
+    <div>
       <MainLayout>
-        {children}
+        <Card>
+          <h1>{title}</h1>
+          <div dangerouslySetInnerHTML={{ __html: body }}/>
+        </Card>
       </MainLayout>
     </div>
     )
