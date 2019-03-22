@@ -46,7 +46,7 @@ exports.createPages = ({ graphql, actions }) => {
     edges.forEach(({node}) => {
       createPage({
         path: node.fields.slug,
-        component: path.resolve(`./src/templates/blog-post.js`),
+        component: path.resolve(`./src/templates/blog-post.jsx`),
         context:{
             slug: node.fields.slug
         }
