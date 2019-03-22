@@ -10,6 +10,10 @@ import CateList from "../catelist"
 const {Sider} = Layout
 
 class BlogRightSidebar extends Component {
+  state = {
+    collapsed: "false"
+  }
+
   render() {
     return(
       <StaticQuery
@@ -28,9 +32,21 @@ class BlogRightSidebar extends Component {
         }
       `}
       render={data => {
+        const onCollapsed = this.props.onCollapse;
+
         return(
           <div>
-            <Sider className={styled.sidebar} width={250}>
+            {console.log("collapsed = " + this.state.collapsed)}
+            <Sider 
+              className={styled.sidebar}
+              theme="light"
+              breakpoint="lg"
+              collapsedWidth="0"
+              style={{overflow: 'auto', height: '100vh'}}
+              onCollapse={(collapsed, type) => {
+                onCollapsed(collapsed); collapsed ? console.log("collapsed") : console.log("not collapsed");
+              }}
+            >
               <CateList edges={data.allMarkdownRemark.edges}/>
               <TagList edges={data.allMarkdownRemark.edges}/>
             </Sider>
