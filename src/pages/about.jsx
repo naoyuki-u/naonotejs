@@ -26,15 +26,15 @@ export default ({data}) => {
       >
         About
       </h1>
-      <div align="center">
+      <div>
         <Card
           style={{width: 500}}
         >
           <Meta 
             avatar={<Avatar size="large" src={avatar}/>}
-            title="About me"
-            description="ほっげええええええええ"
+            title="naoyuki-u"
           />
+          <p>hogehogehoge</p>
         </Card>
       </div>
       <br/>

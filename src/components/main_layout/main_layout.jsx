@@ -3,18 +3,31 @@ import { css } from "@emotion/core"
 
 import { rhythm } from "../../utils/typography"
 
-import { Layout } from 'antd';
+import { Layout, Row } from 'antd';
+import {Button} from "antd"
 
 import NavBar from "../navbar"
 import Sidebar from "../blog_right_sidebar"
+import SidebarButton from "../sidebar_button"
 
 import styled from "./main_layout.module.css";
 
 const {
-  Footer, /*Content,*/
+  Footer, Content,
 } = Layout;
 
 class MainLayout extends Component {
+
+  state = {
+    isShowSideButton : false
+  }
+
+  onCollapseSidebar = (collapsed) =>{
+    this.setState({
+      isShowSideButton: collapsed
+    })
+  }
+
   render() {
     const {children} = this.props
     return(
@@ -23,24 +36,21 @@ class MainLayout extends Component {
         margin: 0 auto;
       `}
     >
-    <Layout>
-      <NavBar></NavBar>
-      <Layout className={styled.post_body}>
-        <div
-          css={css`
-            margin: 0 auto;
-            max-width: 5000px;
-            width: 650px;
-            padding-left: ${rhythm(0.5)};
-          `}
-        >
-          {children}
-        </div>
-        <Sidebar></Sidebar>
+      <Layout>
+        <NavBar></NavBar>
+        {/* <Row> */}
+          <Content>
+            {this.state.isShowSideButton && <SidebarButton/>}
+            <Layout className={styled.post_body}>
+              <Sidebar onCollapse={this.onCollapseSidebar}></Sidebar>
+              <Content className={styled.main_content}>
+                {children}
+              </Content>
+            </Layout>
+          </Content>
+        {/* </Row> */}
+        <Footer>Footer</Footer>
       </Layout>
-      <Footer>Footer</Footer>
-    </Layout>
-
     </div>
     )
   }
