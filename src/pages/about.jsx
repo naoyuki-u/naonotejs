@@ -14,7 +14,6 @@ const contrib_list =[
 ]
 
 export default ({data}) => {
-  console.log(data)
   return (
     <Layout>
       <div>
