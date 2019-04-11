@@ -11,19 +11,16 @@ class SEO extends Component {
     let image;
     let postURL;
     if (isPost) {
-      const postMeta = postNode.frontmatter;
-      ({ title } = postMeta);
-      description = postMeta.description
-        ? postMeta.description
-        : postNode.excerpt;
-      image = postMeta.cover;
+      const post_frontmatter = postNode.frontmatter;
+      title = post_frontmatter.title;
+      description = post_frontmatter.description
+        ? post_frontmatter.description
+        : post_frontmatter.excerpt;
       postURL = urljoin(config.siteUrl, config.pathPrefix, slug);
     } else {
       title = config.siteTitle;
       description = config.siteDescription;
-      image = config.siteLogo;
     }
-    image = urljoin(config.siteUrl, config.pathPrefix, image);
     const blogURL = urljoin(config.siteUrl, config.pathPrefix);
     const schemaOrgJSONLD = [
       {
@@ -73,7 +70,7 @@ class SEO extends Component {
       <Helmet>
         {/* General tags */}
         <meta name="description" content={description} />
-        <meta name="image" content={image} />
+        {/* <meta name="image" content={image} /> */}
 
         {/* Schema.org tags */}
         <script type="application/ld+json">
@@ -85,7 +82,8 @@ class SEO extends Component {
         {isPost ? <meta property="og:type" content="article" /> : null}
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content={image} />
+
+        {/* <meta property="og:image" content={image} /> */}
         <meta
           property="fb:app_id"
           content={config.siteFBAppID ? config.siteFBAppID : ""}
