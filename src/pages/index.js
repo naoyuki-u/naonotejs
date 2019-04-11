@@ -7,7 +7,6 @@ import Layout from "../components/main_layout"
 import PostList from "../components/postlist"
 
 export default ({data}) => {
-  console.log(data)
   return (
     <Layout>
       <div>

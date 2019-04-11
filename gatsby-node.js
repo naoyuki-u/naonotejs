@@ -73,10 +73,8 @@ exports.createPages = ({ graphql, actions }) => {
 
 const createMultiListPages = (edges, rootUrl, createPage) => {
 const total_pages = Math.ceil(edges.length / config.postNumberPerPage);
-console.log("total pages = " + total_pages);
 for (i = 1; i <= total_pages; i++){
   var urlIndex = i;
-  console.log(rootUrl + urlIndex);
   createPage({
     path: rootUrl + urlIndex,
     component: path.resolve(`./src/templates/blog-pages.jsx`),
@@ -120,7 +118,6 @@ const createTagPages = (tag, graphql, createPage) => {
     }
 
     const edges = result.data.allMarkdownRemark.edges;
-    console.log(edges.length + " posts is tagged as " + tag);
 
     createMultiListPages(edges, config.tagPagesRoot + tag + "/", createPage);
   })

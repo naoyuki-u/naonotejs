@@ -19,7 +19,6 @@ class TagList extends Component {
       else if (a < b) return -1;
       else return 0;
     });
-    console.log(tagArray);
     return(
       <div>
         <br/>
