@@ -36,7 +36,6 @@ class BlogRightSidebar extends Component {
 
         return(
           <div>
-            {console.log("collapsed = " + this.state.collapsed)}
             <Sider 
               className={styled.sidebar}
               theme="light"
@@ -44,7 +43,7 @@ class BlogRightSidebar extends Component {
               collapsedWidth="0"
               style={{overflow: 'auto', height: '100vh'}}
               onCollapse={(collapsed, type) => {
-                onCollapsed(collapsed); collapsed ? console.log("collapsed") : console.log("not collapsed");
+                onCollapsed(collapsed);
               }}
             >
               <CateList edges={data.allMarkdownRemark.edges}/>
