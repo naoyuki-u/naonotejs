@@ -25,6 +25,7 @@ exports.createPages = ({ graphql, actions }) => {
         allMarkdownRemark{
           edges{
             node{
+              id
               frontmatter{
                 title,
                 date,
@@ -98,6 +99,7 @@ const createTagPages = (tag, graphql, createPage) => {
       totalCount
       edges {
         node {
+          id
           fields {
             slug
           }
