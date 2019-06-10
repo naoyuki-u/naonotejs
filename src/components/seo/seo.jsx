@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { Helmet } from "react-helmet"
+import urljoin from "url-join";
 
 const config = require('../../utils/site_config')
 
@@ -8,15 +9,14 @@ class SEO extends Component {
     const { postNode, isPost, slug } = this.props;
     let title;
     let description;
-    let image;
     let postURL;
     if (isPost) {
       const post_frontmatter = postNode.frontmatter;
       title = post_frontmatter.title;
       description = post_frontmatter.description
         ? post_frontmatter.description
-        : post_frontmatter.excerpt;
-      postURL = urljoin(config.siteUrl, config.pathPrefix, slug);
+        : postNode.excerpt;
+      postURL = urljoin(config.siteUrl, slug);
     } else {
       title = config.siteTitle;
       description = config.siteDescription;
@@ -43,7 +43,6 @@ class SEO extends Component {
               item: {
                 "@id": postURL,
                 name: title,
-                image
               }
             }
           ]
@@ -55,22 +54,15 @@ class SEO extends Component {
           name: title,
           alternateName: config.siteTitleAlt ? config.siteTitleAlt : "",
           headline: title,
-          image: {
-            "@type": "ImageObject",
-            url: image
-          },
           description
         }
       ]);
     }
-    console.log("debug region");
-    alert("hoge");
     console.log(schemaOrgJSONLD);
     return (
       <Helmet>
         {/* General tags */}
         <meta name="description" content={description} />
-        {/* <meta name="image" content={image} /> */}
 
         {/* Schema.org tags */}
         <script type="application/ld+json">
@@ -82,21 +74,6 @@ class SEO extends Component {
         {isPost ? <meta property="og:type" content="article" /> : null}
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        {/* <meta property="og:image" content={image} /> */}
-        <meta
-          property="fb:app_id"
-          content={config.siteFBAppID ? config.siteFBAppID : ""}
-        />
-
-        {/* Twitter Card tags */}
-        {/* <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:creator"
-          content={config.userTwitter ? config.userTwitter : ""}
-        />
-        <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content={image} /> */}
       </Helmet>
     );
   }

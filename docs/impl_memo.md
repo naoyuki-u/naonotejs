@@ -67,3 +67,25 @@ import avatar from "../images/avatar.png"
 
 ### `static`フォルダを使用する方法
 
+## コメント機能の追加
+
+- [参考](https://snipcart.com/blog/pelican-blog-tutorial-search-comments)
+- [Various ways to include comments on your static site](https://darekkay.com/blog/static-site-comments/)
+
+## SEO関連
+
+サイトはヘッダーにメタ情報を持っている。
+タイトルやアイコン情報、説明(description)など。
+この情報はブラウザ上に表示され、また、SNS等の他のwebサイトで使用される。
+
+こういった情報を提供するのがSEO componentの役割。
+
+Helmetを使うことでこのような情報(メタ情報)をhtml内に埋め込むことができる。
+
+```jsx
+<Helmet>
+    <meta name="description" content="hogehoge"/>
+</Helmet>
+```
+
+`description`メタ情報に`content`で指定された情報を埋め込む。
