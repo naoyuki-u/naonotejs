@@ -14,8 +14,8 @@ export default class BlogPostTemplate extends React.Component{
         <SEO
           postNode={post}
           isPost={true}
-          slug={slug} />
-
+          slug={slug}
+        />
         <BlogLayout
           title={post.frontmatter.title}
           body={post.html}
@@ -29,6 +29,7 @@ export const query = graphql`
   query($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
+      excerpt
       frontmatter {
         title
       }
