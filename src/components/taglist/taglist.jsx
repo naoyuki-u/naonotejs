@@ -7,9 +7,10 @@ class TagList extends Component {
   render() {
     const {edges} = this.props;
     const tagSet = new Set();
+
     edges.forEach(edge => {
       if (edge.node.frontmatter.tags){
-        edge.node.frontmatter.tags.map((tag) => tagSet.add(tag));
+        edge.node.frontmatter.tags.map((tag) => tagSet.add(tag))
       }
     })
 
@@ -26,7 +27,7 @@ class TagList extends Component {
         <p></p>
         <div>
           {tagArray.map((tag) => (
-            <Link to={`/tags/${(tag)}/1`}>
+            <Link to={`/tags/${(tag)}/1`} key={tag}>
               <Tag className={styled.ant-tag} size="large">
                 {tag}
               </Tag>
