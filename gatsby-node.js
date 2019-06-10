@@ -156,9 +156,9 @@ const createCatePages = (cate, graphql, createPage) => {
           excerpt
           frontmatter {
             title
-            tags
             date
             category
+            chapter
           }
         }
       }
