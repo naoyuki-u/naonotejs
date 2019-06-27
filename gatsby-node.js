@@ -68,6 +68,18 @@ exports.createPages = ({ graphql, actions }) => {
     tagArray.map((tag) =>{
       createTagPages(tag, graphql, createPage);
     });
+
+    // categoryリストページの追加
+    const cateSet = new Set();
+    edges.forEach(edge => {
+      if (edge.node.frontmatter.category){
+        cateSet.add(edge.node.frontmatter.category);
+      }
+    })
+    const cateArray = Array.from(cateSet);
+    cateArray.map((cate) =>{
+      createCatePages(cate, graphql, createPage);
+    });
   })
 }
 
@@ -89,6 +101,7 @@ for (i = 1; i <= total_pages; i++){
 }
 
 const createTagPages = (tag, graphql, createPage) => {
+  // 引数で指定したtagを持つ記事のみを抽出するために再度クエリを投げる
   graphql(`
   {
     allMarkdownRemark(
@@ -122,5 +135,51 @@ const createTagPages = (tag, graphql, createPage) => {
     const edges = result.data.allMarkdownRemark.edges;
 
     createMultiListPages(edges, config.tagPagesRoot + tag + "/", createPage);
+  })
+}
+
+const createCatePages = (cate, graphql, createPage) => {
+  graphql(`
+  {
+    allMarkdownRemark(
+      limit: 1000
+      sort: { fields:frontmatter___chapter, order: ASC }
+      filter: { frontmatter: { category: { in: ["${cate}"] } } }
+    ) {
+      totalCount
+      edges {
+        node {
+          id
+          fields {
+            slug
+          }
+          excerpt
+          frontmatter {
+            title
+            chapter
+            date
+          }
+          fields{
+            slug
+          }
+        }
+      }
+    }
+  }`
+  ).then(result => {
+    if (result.data.allMarkdownRemark == null){
+      console.log(cate + " is not found.");
+      return;
+    }
+
+    const edges = result.data.allMarkdownRemark.edges;
+    createPage({
+      path: config.categoryPagesRoot + cate,
+      component: path.resolve(`./src/templates/category-pages.jsx`),
+      context:{
+        edges,
+        category: cate
+      }
+    })
   })
 }
