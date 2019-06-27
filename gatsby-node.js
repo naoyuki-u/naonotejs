@@ -143,7 +143,7 @@ const createCatePages = (cate, graphql, createPage) => {
   {
     allMarkdownRemark(
       limit: 1000
-      sort: { fields:frontmatter___date, order:DESC }
+      sort: { fields:frontmatter___chapter, order: ASC }
       filter: { frontmatter: { category: { in: ["${cate}"] } } }
     ) {
       totalCount
@@ -156,9 +156,11 @@ const createCatePages = (cate, graphql, createPage) => {
           excerpt
           frontmatter {
             title
-            date
-            category
             chapter
+            date
+          }
+          fields{
+            slug
           }
         }
       }
@@ -171,7 +173,13 @@ const createCatePages = (cate, graphql, createPage) => {
     }
 
     const edges = result.data.allMarkdownRemark.edges;
-
-    createMultiListPages(edges, config.categoryPagesRoot + cate + "/", createPage);
+    createPage({
+      path: config.categoryPagesRoot + cate,
+      component: path.resolve(`./src/templates/category-pages.jsx`),
+      context:{
+        edges,
+        category: cate
+      }
+    })
   })
 }
