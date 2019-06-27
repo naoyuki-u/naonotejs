@@ -3,6 +3,8 @@ import { Link } from "gatsby"
 import {Tag} from "antd"
 import styled from "./taglist.module.css"
 
+const config = require("../../utils/site_config");
+
 class TagList extends Component {
   render() {
     const {edges} = this.props;
@@ -27,7 +29,9 @@ class TagList extends Component {
         <p></p>
         <div>
           {tagArray.map((tag) => (
-            <Link to={`/tags/${(tag)}/1`} key={tag}>
+            <Link to={`${(config.tagPagesRoot)}/${(tag)}/1`}
+                  key={tag}
+            >
               <Tag className={styled.ant-tag} size="large">
                 {tag}
               </Tag>
