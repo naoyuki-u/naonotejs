@@ -1,6 +1,9 @@
 import React, {Component} from "react"
+import { Link } from "gatsby"
 import {Menu} from "antd"
 // import styled from "./catelist.module.css"
+
+const config = require("../../utils/site_config");
 
 class CateList extends Component {
   render() {
@@ -27,7 +30,11 @@ class CateList extends Component {
           <Menu>
             {cateArray.map((category) => (
               <Menu.Item key={category}>
-                {category}
+                <Link to={`${(config.categoryPagesRoot)}/${(category)}`} 
+                      key={category}
+                >
+                  {category}
+                </Link>
               </Menu.Item>
             ))}
           </Menu>
