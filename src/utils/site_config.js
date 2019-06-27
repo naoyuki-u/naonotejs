@@ -12,8 +12,8 @@ const config = {
 
     postNumberPerPage: "5",
     pagesRoot: "pages-",
-    tagPagesRoot: "tags/",
-    categoryPagesRoot: "category/"
+    tagPagesRoot: "tags",
+    categoryPagesRoot: "category"
 };
 
 module.exports = config;
