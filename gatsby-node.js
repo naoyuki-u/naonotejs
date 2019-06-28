@@ -134,7 +134,7 @@ const createTagPages = (tag, graphql, createPage) => {
 
     const edges = result.data.allMarkdownRemark.edges;
 
-    createMultiListPages(edges, config.tagPagesRoot + tag + "/", createPage);
+    createMultiListPages(edges, config.tagPagesRoot + "/" + tag + "/", createPage);
   })
 }
 
@@ -174,7 +174,7 @@ const createCatePages = (cate, graphql, createPage) => {
 
     const edges = result.data.allMarkdownRemark.edges;
     createPage({
-      path: config.categoryPagesRoot + cate,
+      path: config.categoryPagesRoot + "/" + cate,
       component: path.resolve(`./src/templates/category-pages.jsx`),
       context:{
         edges,
