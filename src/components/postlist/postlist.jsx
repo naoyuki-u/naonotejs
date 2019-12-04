@@ -31,7 +31,11 @@ class PostList extends Component {
       <div>
         {
           edges.slice(post_begin, post_end).map(({ node }) => (
-            <PostCard node={node} key={node.id}/>
+            <div>
+              <PostCard node={node} key={node.id}/>
+              <br/>
+              <br/>
+            </div>
           ))
         }
         <Pagination 
