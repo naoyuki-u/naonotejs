@@ -20,8 +20,8 @@ class PostList extends Component {
     }
 
     const onChange = (page) => {
-      if (false){
-        navigate("/");
+      if (rootUrl == null){
+        navigate("/" + page);
       } else{
         navigate(rootUrl + "/" + page)
       }
