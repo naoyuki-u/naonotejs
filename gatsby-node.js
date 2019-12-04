@@ -32,6 +32,7 @@ exports.createPages = ({ graphql, actions }) => {
                 tags,
                 category
               }
+              excerpt
               fields{
                   slug
               }
