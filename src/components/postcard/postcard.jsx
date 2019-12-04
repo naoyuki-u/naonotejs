@@ -12,11 +12,11 @@ class PostCard extends Component {
     const tags = node.frontmatter.tags;
 
     return (
-      <div key={node.id}>
+      <div key={node.id} className={styled.postcard_size}>
         <Row>
         <Link to={node.fields.slug}>
           <Card
-            className={styled.postcard}
+            // className={styled.postcard}
             cover={<img alt="example"
                         src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
                   />}
@@ -48,8 +48,6 @@ class PostCard extends Component {
             <br/>
             <p>{node.excerpt}</p>
             <br/>
-
-
           </Card>
         </Link>
         </Row>
