@@ -21,7 +21,6 @@ class TOC extends Component {
                 <div>
                 {head.depth == 1 && <Link href={`#${(head.value)}`}
                                           title={head.value}/>}
-
                 {head.depth == 2 && <ul className={styled.toc_list}>
                                       <li className={styled.toc_li}>
                                         <Link href={`#${(head.value)}`}

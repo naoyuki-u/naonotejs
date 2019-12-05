@@ -16,6 +16,8 @@ class BlogRightSidebar extends Component {
   }
 
   render() {
+    const {isArticle} = this.props;
+
     return(
       <StaticQuery
       query={graphql`
