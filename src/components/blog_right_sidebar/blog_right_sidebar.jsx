@@ -7,6 +7,7 @@ import styled from "./blog_right_sidebar.module.css";
 import TagList from "../taglist"
 import CateList from "../catelist"
 
+import TOC from "../toc"
 const {Sider} = Layout
 
 class BlogRightSidebar extends Component {
@@ -36,7 +37,7 @@ class BlogRightSidebar extends Component {
 
         return(
           <div>
-            <Sider 
+            <Sider
               className={styled.sidebar}
               theme="light"
               breakpoint="lg"
@@ -46,8 +47,15 @@ class BlogRightSidebar extends Component {
                 onCollapsed(collapsed);
               }}
             >
-              <CateList edges={data.allMarkdownRemark.edges}/>
-              <TagList edges={data.allMarkdownRemark.edges}/>
+              {
+                isArticle ?
+                  <TOC headings={this.props.headings}/>
+                  :
+                  (<div>
+                    <CateList edges={data.allMarkdownRemark.edges}/>
+                    <TagList edges={data.allMarkdownRemark.edges}/>
+                  </div>)
+              }
             </Sider>
           </div>
         )
