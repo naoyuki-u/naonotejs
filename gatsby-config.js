@@ -24,6 +24,7 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
+          `gatsby-remark-autolink-headers`,
           `gatsby-remark-code-titles`,
           `gatsby-remark-katex`,
           "gatsby-remark-copy-linked-files",

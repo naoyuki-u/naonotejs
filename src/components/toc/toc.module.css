@@ -1,0 +1,14 @@
+.toc{
+    /* margin: 0 auto;
+    max-width: 250px;
+    padding-left: 0px; */
+    background-color: transparent;
+}
+
+.toc_list{
+    padding-left: 1.5em;
+}
+
+.toc_li{
+    padding-left: 0em
+}

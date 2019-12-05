@@ -19,6 +19,7 @@ export default class BlogPostTemplate extends React.Component{
         <BlogLayout
           title={post.frontmatter.title}
           body={post.html}
+          headings={post.headings}
         />
       </div>
     )
@@ -32,6 +33,10 @@ export const query = graphql`
       excerpt
       frontmatter {
         title
+      }
+      headings{
+        value
+        depth
       }
     }
   }

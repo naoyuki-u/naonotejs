@@ -9,6 +9,7 @@ import {Button} from "antd"
 import NavBar from "../navbar"
 import Sidebar from "../blog_right_sidebar"
 import SidebarButton from "../sidebar_button"
+import TOC from "../toc"
 
 import styled from "./main_layout.module.css";
 
@@ -29,7 +30,8 @@ class MainLayout extends Component {
   }
 
   render() {
-    const {children} = this.props
+    const {children, headings, is_article} = this.props
+    
     return(
     <div
       css={css`
@@ -42,10 +44,12 @@ class MainLayout extends Component {
           <Content>
             {this.state.isShowSideButton && <SidebarButton/>}
             <Layout className={styled.post_body}>
-              <Sidebar onCollapse={this.onCollapseSidebar}></Sidebar>
               <Content className={styled.main_content}>
                 {children}
               </Content>
+              <Sidebar onCollapse={this.onCollapseSidebar}
+                isArticle={is_article}
+                headings={headings}></Sidebar>
             </Layout>
           </Content>
         {/* </Row> */}
