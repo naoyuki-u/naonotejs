@@ -1,5 +1,6 @@
 .sidebar{
     margin: 0 auto;
-    max-width: 250px;
+    max-width: 500px;
     padding-left: 0px;
+    height: '10vh';
 }

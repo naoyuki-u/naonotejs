@@ -38,13 +38,13 @@ class BlogRightSidebar extends Component {
         const onCollapsed = this.props.onCollapse;
 
         return(
-          <div>
+          <div className={styled.sidebar}>
             <Sider
-              className={styled.sidebar}
               theme="light"
               breakpoint="lg"
               collapsedWidth="0"
-              style={{overflow: 'auto', height: '100vh'}}
+              width="300"
+              style={{overflow: 'auto', width: '200vh'}}
               onCollapse={(collapsed, type) => {
                 onCollapsed(collapsed);
               }}
