@@ -1,6 +1,12 @@
-.head_bar{
-    height: 128px;
+.header_overall{
     max-width: auto;
+    height: 128px;
+    margin: auto;
+}
+
+.header_content{
+    max-width: 800px;
+    margin: auto;
 }
 
 .title{
@@ -14,9 +20,6 @@
 
 .site_title{
     display: 'none';
-}
-
-.test_button{
 }
 
 .home_button{
