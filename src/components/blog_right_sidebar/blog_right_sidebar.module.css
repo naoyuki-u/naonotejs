@@ -1,6 +1,10 @@
 .sidebar{
-    margin: 0 auto;
-    max-width: 500px;
-    padding-left: 0px;
-    height: '10vh';
+    /* margin: 0 auto; */
+    /* max-width: 250px; */
+    /* padding-left: 0px; */
+}
+
+.layout{
+    width: 150px;
+    /*margin: auto auto auto 10px; */
 }

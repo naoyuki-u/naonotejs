@@ -13,7 +13,7 @@ class PostCard extends Component {
 
     return (
       <div key={node.id} className={styled.postcard_size}>
-        <Row>
+        {/* <Row> */}
         <Link to={node.fields.slug}>
           <Card
             // className={styled.postcard}
@@ -50,7 +50,7 @@ class PostCard extends Component {
             <br/>
           </Card>
         </Link>
-        </Row>
+        {/* </Row> */}
       </div>
     )
   }

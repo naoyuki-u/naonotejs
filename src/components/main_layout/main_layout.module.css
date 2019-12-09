@@ -1,13 +1,24 @@
-.post_body{
-    margin: 0 auto;
+.mainbody{
+    margin: auto;
     max-width: 1200px;
     /*min-width: auto; */
-    padding-left: 16px;
+    /* padding-left: 16px; */
 }
 
-.main_content{
-    padding-left: 16px;
-    margin: 0 auto;
-    max-width: 5000px;
+.content{
+    /* padding-left: 16px; */
+    margin: auto;
+    width: 100%;
+    /* max-width: 1440px; */
     /* width: 300px; */
+}
+
+.sidebar{
+    width: 500px;
+    margin: auto;
+    /* margin-left: 100px; */
+}
+
+.hidden_sidebar{
+    width: 0px;
 }
