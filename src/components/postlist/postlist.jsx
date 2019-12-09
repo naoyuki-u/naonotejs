@@ -3,6 +3,8 @@ import { navigate } from "gatsby"
 import { Pagination } from "antd"
 import PostCard from "../postcard"
 
+import styled from "./postlist.module.css"
+
 const config = require('../../utils/site_config')
 
 class PostList extends Component {
@@ -28,7 +30,7 @@ class PostList extends Component {
     }
 
     return (
-      <div>
+      <div className={styled.postlist}>
         {
           edges.slice(post_begin, post_end).map(({ node }) => (
             <div>

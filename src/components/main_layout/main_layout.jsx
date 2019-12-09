@@ -31,7 +31,7 @@ class MainLayout extends Component {
 
   render() {
     const {children, headings, is_article} = this.props
-    
+
     return(
     <div
       css={css`
@@ -43,13 +43,17 @@ class MainLayout extends Component {
         {/* <Row> */}
           <Content>
             {this.state.isShowSideButton && <SidebarButton/>}
-            <Layout className={styled.post_body}>
-              <Content className={styled.main_content}>
+            <Layout className={styled.mainbody}>
+              <Content className={styled.content}>
                 {children}
               </Content>
-              <Sidebar onCollapse={this.onCollapseSidebar}
-                isArticle={is_article}
-                headings={headings}></Sidebar>
+                <Sidebar
+                  className={this.isShowSideButton ?
+                             styled.hidden_sidebar : styled.sidebar }
+                  onCollapse={this.onCollapseSidebar}
+                  isArticle={is_article}
+                  headings={headings}
+                />
             </Layout>
           </Content>
         {/* </Row> */}

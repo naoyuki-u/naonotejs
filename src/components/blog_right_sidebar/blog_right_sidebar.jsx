@@ -38,9 +38,8 @@ class BlogRightSidebar extends Component {
         const onCollapsed = this.props.onCollapse;
 
         return(
-          <div>
+          <div className={styled.sidebar_overall}>
             <Sider
-              className={styled.sidebar}
               theme="light"
               breakpoint="lg"
               collapsedWidth="0"
