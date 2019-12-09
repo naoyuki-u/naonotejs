@@ -1,5 +1,29 @@
+.post_title{
+    font-size: 40px;
+}
+
+.post_header{
+    font-size: 15px;
+}
+
 .post_body{
     margin: 0 auto;
     max-width: 300px;
     padding-left: 64px;
+}
+
+.icon_tags{
+    margin-right: 10px;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.icon_calendar{
+    margin-right: 10px;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.post_tags{
+    display: inline;
 }

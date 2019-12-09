@@ -2,10 +2,11 @@
     max-width: auto;
     height: 128px;
     margin: auto;
+    margin-bottom: 50px;
 }
 
 .header_content{
-    max-width: 800px;
+    max-width: 1200px;
     margin: auto;
 }
 
