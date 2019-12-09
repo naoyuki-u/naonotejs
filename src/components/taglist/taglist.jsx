@@ -22,8 +22,9 @@ class TagList extends Component {
       else if (a < b) return -1;
       else return 0;
     });
+
     return(
-      <div>
+      <div className={styled.block}>
         <br/>
         <h3>タグ</h3>
         <p></p>
@@ -32,9 +33,12 @@ class TagList extends Component {
             <Link to={`${(config.tagPagesRoot)}/${(tag)}/1`}
                   key={tag}
             >
-              <Tag className={styled.ant-tag} size="large">
+              <Tag
+                className={styled.mytags}
+              >
                 {tag}
               </Tag>
+              <br/>
             </Link>
           ))}
           <p></p>
