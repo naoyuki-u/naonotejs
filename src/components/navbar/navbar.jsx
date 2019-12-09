@@ -50,15 +50,15 @@ class NavBar extends Component {
 
           return(
             <div>
-              <Header className={styled.head_bar}>
-              <Row>
+              <Header className={styled.header_overall}>
+              <Row className={styled.header_content} justify="center" type="flex">
                 <Col span={4}>
                   <Link to="/">
                     <h2 className={styled.title}>{config.siteTitle}</h2>
                   </Link>
                 </Col>
                 <Col span={14} offset={1}>
-                  <Menu className={styled.menuStyle}
+                  <Menu 
                         mode="horizontal"
                         theme="dark"
                         style={{ lineHeight: '64px' }}
