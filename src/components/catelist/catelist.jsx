@@ -1,7 +1,7 @@
 import React, {Component} from "react"
 import { Link } from "gatsby"
 import {Menu} from "antd"
-// import styled from "./catelist.module.css"
+import styled from "./catelist.module.css"
 
 const config = require("../../utils/site_config");
 
@@ -22,7 +22,7 @@ class CateList extends Component {
       else return 0;
     });
     return(
-      <div>
+      <div className={styled.barcateblock}>
         <br/>
         <h3>カテゴリー</h3>
         <p></p>
