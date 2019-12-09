@@ -3,6 +3,7 @@ import { Card, Divider, Icon } from "antd";
 
 import MainLayout from "../main_layout"
 import PostTag from "../post_tag"
+import BreadCrumb from "../breadcrumb"
 import TOC from "../toc"
 
 import "../../styles/codeblock.scss"
@@ -14,28 +15,34 @@ import styled from "./layout_blog.module.css";
 class LayoutBlog extends Component {
   render() {
     const {post} = this.props
+    const title = post.frontmatter.title;
+    const date = post.frontmatter.date;
+    const category = post.frontmatter.category;
+    const sub_category = post.frontmatter.sub_category;
+    const tags = post.frontmatter.tags;
+
     return(
     <div>
       <MainLayout headings={post.headings} is_article={true}>
+        <BreadCrumb frontmatter={post.frontmatter} />
         <Card>
-          <h1 className={styled.post_title}>
-            {post.frontmatter.title}
-          </h1>
+          <h1 className={styled.post_title}> {title} </h1>
 
           <Icon type="calendar" className={styled.icon_calendar}/>
           <span className={styled.post_header}>
-            {post.frontmatter.date}
-            {post.frontmatter.date == null && "unkwnon date"}
+            {date}
+            {date == null && "unkwnon date"}
           </span>
           <br/>
 
           <Icon type="tags" className={styled.icon_tags}/>
           {
-            post.frontmatter.tags.map(
+            tags.map(
               (tag) => <PostTag className={styled.post_tags}
                                 tagname={tag}>
                           <span className={styled.post_header}>{tag}</span>
-                        </PostTag>)
+                        </PostTag>
+            )
           }
           <br/>
 
